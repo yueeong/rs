@@ -3,10 +3,8 @@
 #stdlib
 import math
 import sys
-
 # import custom libs
 from utils import file_utils
-
 
 class LocationCircle(object):
     '''
@@ -30,14 +28,16 @@ class LocationCircle(object):
         #check here to ensure cirlces only touch at one point
         dist_between_centers = math.sqrt((self.loc_circle2.x - self.x)**2 + (self.loc_circle2.y - self.y)**2)
         # since only touching at one point, we can assume val a and b are the val of the radius
-        x_intersect = self.x + self.r*(self.loc_circle2.x - self.x)/dist_between_centers
-        y_intersect = self.y + self.r*(self.loc_circle2.y - self.y)/dist_between_centers
+        if dist_between_centers == self.r + self.loc_circle2.r:
+            x_intersect = self.x + self.r*(self.loc_circle2.x - self.x)/dist_between_centers
+            y_intersect = self.y + self.r*(self.loc_circle2.y - self.y)/dist_between_centers
+        else:
+            print('Invalid data. Transmitter seems to be coming from 2 locations')
 
         return x_intersect, y_intersect
 
 
 if __name__ == "__main__":
-    print(sys.argv[1])
     list_of_circles = []
     input_data = file_utils.load_input_data(sys.argv[1])
     lines = input_data.readlines()
