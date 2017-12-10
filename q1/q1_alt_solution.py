@@ -10,9 +10,9 @@ from utils import file_utils
 def get_intersection_point(x1, y1, r1, x0, y0, r0):
     '''
     Ratio of distance between the 2 points would apply to ratio of the x, y co-ord of the source.
-    :param x1:
-    :param y1:
-    :param r1:
+    :param x1: x co-ord of second location
+    :param y1: y co-ord of second location
+    :param r1: r radius of second location
     :param x0:
     :param y0:
     :param r0:
@@ -31,14 +31,10 @@ if __name__ == "__main__":
     lines = input_data.readlines()
     input_data.close()
 
-
-    x1 = float(lines[0].strip().split()[0])
-    y1 = float(lines[0].strip().split()[1])
-    r1 = float(lines[0].strip().split()[2])
-
-    x0 = float(lines[1].strip().split()[0])
-    y0 = float(lines[1].strip().split()[1])
-    r0 = float(lines[1].strip().split()[2])
-
-    output = get_intersection_point(x1, y1, r1, x0, y0, r0)
+    output = get_intersection_point(float(lines[0].strip().split()[0]),
+                                    float(lines[0].strip().split()[1]),
+                                    float(lines[0].strip().split()[2]),
+                                    float(lines[1].strip().split()[0]),
+                                    float(lines[1].strip().split()[1]),
+                                    float(lines[1].strip().split()[2]))
     print(str(output[0]) + ' ' + str(output[1]))

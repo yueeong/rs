@@ -4,8 +4,7 @@ def load_input_data(filename):
     if os.path.isfile(filename):
         try:
             input_file_handle = open(filename, mode='r')
-            # with open(filename, mode='r') as input_file_handle:
-            #     return input_file_handle
+
             return input_file_handle
         except Exception as e:
             print("Something went wrong loading the input file : " + str(e))
