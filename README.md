@@ -1,6 +1,6 @@
 ## Rackspace coding exercises
 
-Coding exercise for Rackspace in Python.
+Coding exercise for Rackspace in Python 3.
 
 In order to adhere to DRY principle, file loading is written in utils/file_utils.py as import module to be used in each solution.
 
